@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+
+.cucumber-react .cucumber-status--passed {
+  color: #2CB14A;
+}
+.cucumber-react .cucumber-status--skipped {
+  color: #00A0CC;
+}
+.cucumber-react .cucumber-status--pending {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--undefined {
+  color: #FFAD33;
+}
+.cucumber-react .cucumber-status--ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .cucumber-status--failed {
+  color: #BB0000;
+}
+.cucumber-react .cucumber-status--unknown {
+  color: #B6BECB;
+}
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin: 0;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .cucumber-title {
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react .cucumber-title__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-title__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-tags {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .cucumber-tags .cucumber-tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react .cucumber-feature__icon {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-description,
+.cucumber-react .cucumber-children {
+  margin-left: 1em;
+}
+.cucumber-react .cucumber-feature,
+.cucumber-react .cucumber-rule,
+.cucumber-react .cucumber-scenario,
+.cucumber-react .cucumber-background {
+  margin-bottom: 1em;
+}
+.cucumber-react .cucumber-steps {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react .cucumber-steps .cucumber-step {
+  display: flex;
+}
+.cucumber-react .cucumber-steps .cucumber-step__status {
+  padding-top: 0.2em;
+  padding-right: 0.5em;
+}
+.cucumber-react .cucumber-steps .cucumber-step__content {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-steps .cucumber-step__keyword {
+  font-weight: bold;
+}
+.cucumber-react .cucumber-steps .cucumber-step__text {
+  font-weight: normal;
+}
+.cucumber-react .cucumber-steps .cucumber-step__param {
+  font-weight: normal;
+  font-style: italic;
+}
+.cucumber-react .cucumber-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .cucumber-table__header-cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .cucumber-table__cell__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .cucumber-table__cell__step {
+  flex-grow: 1;
+}
+.cucumber-react .cucumber-code {
+  padding: 0.25em;
+  background-color: #ebebeb;
+}
+.cucumber-react .cucumber-error {
+  padding: 0.5em;
+  margin: 0;
+  overflow: scroll;
+}
+.cucumber-react .cucumber-no-documents {
+  font: 14px "Open Sans", sans-serif;
+}
+.cucumber-react .cucumber-attachment {
+  background-color: #ebebeb;
+  padding: 0.5em;
+}
+.cucumber-react .cucumber-attachment__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-attachment__image {
+  margin-top: 1em;
+}
+.cucumber-react .cucumber-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.cucumber-react .cucumber-anchor__link {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.cucumber-react .cucumber-anchor__icon {
+  margin-right: 0.5em;
+}
+.cucumber-react .cucumber-anchor:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.cucumber-react .cucumber-anchor > * {
+  height: 100%;
+  margin-top: 0px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [
+{"meta":{"protocolVersion":"13.2.1","implementation":{"name":"cucumber-ruby","version":"5.3.0"},"runtime":{"name":"ruby","version":"2.7.2"},"os":{"name":"mingw32","version":"10.0.19042"},"cpu":{"name":"x64"}}},
+{"hook":{"id":"98967ab6-1457-4c49-8b09-08503b475f4e","sourceReference":{"uri":"capybara-3.35.3/lib/capybara/cucumber.rb","location":{"line":10}}}},
+{"hook":{"id":"34545254-591c-415f-900e-9bddccda01e2","sourceReference":{"uri":"capybara-3.35.3/lib/capybara/cucumber.rb","location":{"line":14}}}},
+{"hook":{"id":"1c50e96e-e9df-4184-87c4-93f6db09455d","tagExpression":"@javascript","sourceReference":{"uri":"capybara-3.35.3/lib/capybara/cucumber.rb","location":{"line":18}}}},
+{"hook":{"id":"c8c60a6a-cdf2-430e-8d44-d75613fefa78","sourceReference":{"uri":"capybara-3.35.3/lib/capybara/cucumber.rb","location":{"line":22}}}},
+{"hook":{"id":"b395aeab-4e97-4f1c-984b-66480af17f1e","sourceReference":{"uri":"features/support/hooks.rb","location":{"line":1}}}},
+{"stepDefinition":{"id":"197f9780-cca5-47a7-ab6e-c941d7340752","pattern":{"source":"o site da Livelo","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/adiciona_carrinho.rb","location":{"line":4}}}},
+{"stepDefinition":{"id":"2daa419b-ad5f-448d-aac0-cfcbd823f7d8","pattern":{"source":"autorizar os cookies","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/adiciona_carrinho.rb","location":{"line":10}}}},
+{"stepDefinition":{"id":"cdffeeab-a607-4e37-a8e3-bd01016fc683","pattern":{"source":"apresentar a seção de produtos","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/adiciona_carrinho.rb","location":{"line":16}}}},
+{"stepDefinition":{"id":"305b2f8f-7b43-43e6-bae4-4070a0934d7d","pattern":{"source":"um clique for efetuado no botão Adicionar ao Carrinho","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/adiciona_carrinho.rb","location":{"line":22}}}},
+{"stepDefinition":{"id":"62b7edbd-d6fe-4059-a967-a7e4974844f2","pattern":{"source":"Livelo exibirá a tela Seu carrinho","type":"CUCUMBER_EXPRESSION"},"sourceReference":{"uri":"features/step_definitions/adiciona_carrinho.rb","location":{"line":27}}}},
+{"source":{"uri":"features/adiciona_carrinho.feature","data":"#language: pt\nFuncionalidade: Adicionar uma mercadoria ao carrinho\nCenário: adicionando mercadoria ao carrinho\nDado o site da Livelo\nQuando autorizar os cookies\nE apresentar a seção de produtos\nE um clique for efetuado no botão Adicionar ao Carrinho\nEntão Livelo exibirá a tela Seu carrinho","mediaType":"text/x.cucumber.gherkin+plain"}},
+{"gherkinDocument":{"feature":{"location":{"line":2,"column":1},"language":"pt","keyword":"Funcionalidade","name":"Adicionar uma mercadoria ao carrinho","children":[{"scenario":{"id":"f94837d3-5b48-4128-ac64-94a9cc61bb1f","location":{"line":3,"column":1},"keyword":"Cenário","name":"adicionando mercadoria ao carrinho","steps":[{"location":{"line":4,"column":1},"keyword":"Dado ","text":"o site da Livelo","id":"d1dfa7eb-4e09-4651-8531-7fb0523be607"},{"location":{"line":5,"column":1},"keyword":"Quando ","text":"autorizar os cookies","id":"6020618e-30e4-47c8-a8f6-005d916da4dd"},{"location":{"line":6,"column":1},"keyword":"E ","text":"apresentar a seção de produtos","id":"846a6c3a-30d3-4a60-b24d-68f456e602df"},{"location":{"line":7,"column":1},"keyword":"E ","text":"um clique for efetuado no botão Adicionar ao Carrinho","id":"d2238159-ecf2-4aff-b6ce-54eb1c79b7f9"},{"location":{"line":8,"column":1},"keyword":"Então ","text":"Livelo exibirá a tela Seu carrinho","id":"3a23cf21-aedf-4efc-b07a-6b05e227dba5"}]}}]},"uri":"features/adiciona_carrinho.feature"}},
+{"pickle":{"uri":"features/adiciona_carrinho.feature","id":"bd417f90-3f7d-4cdb-96e4-fcf6c40742b6","name":"adicionando mercadoria ao carrinho","language":"pt","astNodeIds":["f94837d3-5b48-4128-ac64-94a9cc61bb1f"],"steps":[{"id":"93b87705-2575-420c-9154-eb47d44b8225","astNodeIds":["d1dfa7eb-4e09-4651-8531-7fb0523be607"],"text":"o site da Livelo"},{"id":"f94eaba3-a8ac-4195-a216-39fb006a5371","astNodeIds":["6020618e-30e4-47c8-a8f6-005d916da4dd"],"text":"autorizar os cookies"},{"id":"2b807eb2-8efc-4a6b-ab5b-7fdd387dc7f8","astNodeIds":["846a6c3a-30d3-4a60-b24d-68f456e602df"],"text":"apresentar a seção de produtos"},{"id":"785054ee-52da-4a33-813e-6dc8d80f579e","astNodeIds":["d2238159-ecf2-4aff-b6ce-54eb1c79b7f9"],"text":"um clique for efetuado no botão Adicionar ao Carrinho"},{"id":"db4c6d53-11e0-4193-8662-1b4dc01dd979","astNodeIds":["3a23cf21-aedf-4efc-b07a-6b05e227dba5"],"text":"Livelo exibirá a tela Seu carrinho"}]}},
+{"testCase":{"id":"2ff1ec0a-0d22-4a19-861b-9cd8468f0eda","pickleId":"bd417f90-3f7d-4cdb-96e4-fcf6c40742b6","testSteps":[{"id":"17af4e39-0c46-424e-8381-87c0f78d025f","hookId":"34545254-591c-415f-900e-9bddccda01e2"},{"id":"74afa259-09a4-4c29-96fb-c649ed5b7ec1","hookId":"c8c60a6a-cdf2-430e-8d44-d75613fefa78"},{"id":"a1ef646e-09f9-4419-84a2-3a1d7bfc4ef0","pickleStepId":"93b87705-2575-420c-9154-eb47d44b8225","stepDefinitionIds":["197f9780-cca5-47a7-ab6e-c941d7340752"],"stepMatchArgumentsLists":[{}]},{"id":"e715dfac-b9a3-43cc-928d-2d29b2ac263c","pickleStepId":"f94eaba3-a8ac-4195-a216-39fb006a5371","stepDefinitionIds":["2daa419b-ad5f-448d-aac0-cfcbd823f7d8"],"stepMatchArgumentsLists":[{}]},{"id":"493aec61-7a55-4f3f-b6ad-34dde183f225","pickleStepId":"2b807eb2-8efc-4a6b-ab5b-7fdd387dc7f8","stepDefinitionIds":["cdffeeab-a607-4e37-a8e3-bd01016fc683"],"stepMatchArgumentsLists":[{}]},{"id":"11c213ec-0667-4f61-928b-562104d751fb","pickleStepId":"785054ee-52da-4a33-813e-6dc8d80f579e","stepDefinitionIds":["305b2f8f-7b43-43e6-bae4-4070a0934d7d"],"stepMatchArgumentsLists":[{}]},{"id":"5a7bb71f-8626-4afa-ba8d-51f1657a8bba","pickleStepId":"db4c6d53-11e0-4193-8662-1b4dc01dd979","stepDefinitionIds":["62b7edbd-d6fe-4059-a967-a7e4974844f2"],"stepMatchArgumentsLists":[{}]},{"id":"1d3f9b19-38ea-49d7-9825-e3beab6acaea","hookId":"b395aeab-4e97-4f1c-984b-66480af17f1e"},{"id":"ff40b714-69a5-4a82-9108-097e8a39f28b","hookId":"98967ab6-1457-4c49-8b09-08503b475f4e"}]}},
+{"testRunStarted":{"timestamp":{"seconds":"1614203098","nanos":753855000}}},
+{"testCaseStarted":{"id":"e1cf38ab-ac5e-4164-874f-405d763e465d","testCaseId":"2ff1ec0a-0d22-4a19-861b-9cd8468f0eda","timestamp":{"seconds":"1614203098","nanos":758458400},"attempt":1}},
+{"testStepStarted":{"testStepId":"17af4e39-0c46-424e-8381-87c0f78d025f","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","timestamp":{"seconds":"1614203098","nanos":840990800}}},
+{"testStepFinished":{"testStepId":"17af4e39-0c46-424e-8381-87c0f78d025f","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","testStepResult":{"status":"PASSED","duration":{"nanos":35500}},"timestamp":{"seconds":"1614203098","nanos":842566800}}},
+{"testStepStarted":{"testStepId":"74afa259-09a4-4c29-96fb-c649ed5b7ec1","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","timestamp":{"seconds":"1614203098","nanos":843186400}}},
+{"testStepFinished":{"testStepId":"74afa259-09a4-4c29-96fb-c649ed5b7ec1","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","testStepResult":{"status":"PASSED","duration":{"nanos":35300}},"timestamp":{"seconds":"1614203098","nanos":843733200}}},
+{"testStepStarted":{"testStepId":"a1ef646e-09f9-4419-84a2-3a1d7bfc4ef0","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","timestamp":{"seconds":"1614203098","nanos":844349800}}},
+{"testStepFinished":{"testStepId":"a1ef646e-09f9-4419-84a2-3a1d7bfc4ef0","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","testStepResult":{"status":"PASSED","duration":{"seconds":"13","nanos":71129499}},"timestamp":{"seconds":"1614203111","nanos":918296500}}},
+{"testStepStarted":{"testStepId":"e715dfac-b9a3-43cc-928d-2d29b2ac263c","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","timestamp":{"seconds":"1614203111","nanos":918926700}}},
+{"testStepFinished":{"testStepId":"e715dfac-b9a3-43cc-928d-2d29b2ac263c","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","testStepResult":{"status":"PASSED","duration":{"seconds":"10","nanos":132220099}},"timestamp":{"seconds":"1614203122","nanos":52576600}}},
+{"testStepStarted":{"testStepId":"493aec61-7a55-4f3f-b6ad-34dde183f225","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","timestamp":{"seconds":"1614203122","nanos":53161300}}},
+{"testStepFinished":{"testStepId":"493aec61-7a55-4f3f-b6ad-34dde183f225","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","testStepResult":{"status":"PASSED","duration":{"seconds":"10","nanos":575045799}},"timestamp":{"seconds":"1614203132","nanos":629346500}}},
+{"testStepStarted":{"testStepId":"11c213ec-0667-4f61-928b-562104d751fb","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","timestamp":{"seconds":"1614203132","nanos":629826200}}},
+{"testStepFinished":{"testStepId":"11c213ec-0667-4f61-928b-562104d751fb","testCaseStartedId":"e1cf38ab-ac5e-4164-874f-405d763e465d","testStepResult":{"status":"FAILED","duration":{"seconds":"5","nanos":939495100},"message":"exit (SystemExit)\n./features/step_definitions/adiciona_carrinho.rb:24:in `sleep'\n./features/step_definitions/adiciona_carrinho.rb:24:in `\"um clique for efetuado no botão Adicionar ao Carrinho\"'\nfeatures/adiciona_carrinho.feature:7:in `um clique for efetuado no botão Adicionar ao Carrinho'"},"timestamp":{"seconds":"1614203138","nanos":573463700}}}
